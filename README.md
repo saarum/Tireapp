@@ -1,60 +1,139 @@
-# Dekkalkulator
+# Kalkulator Samling
 
-En norsk web-basert kalkulator for å beregne verdien av brukte dekk basert på mønsterdybde, alder og andre faktorer.
+En samling av profesjonelle web-baserte kalkulatorer for spesialiserte beregninger. Alle kalkulatorene er bygget med moderne web-teknologi og følger industristandarder.
 
-## Beskrivelse
+## 🧮 Oversikt
 
-Dekkalkulatoren hjelper deg med å estimere den nåværende verdien av brukte dekk ved å ta hensyn til:
-- Nåværende mønsterdybde vs. ny mønsterdybde
-- Minimum sikker mønsterdybde
-- Dekkenes alder og produksjonsår
-- Opprinnelig nypris
-- Monteringskostnader
-- Forventet levetid
+Denne samlingen inneholder tre spesialiserte kalkulatorer:
 
-## Funksjoner
+1. **🚗 Bruktdekk Verdikalkulator** - Beregn verdien av brukte dekk
+2. **⚡ Spenningsfall Kalkulator** - Beregn spenningsfall i elektriske kabler  
+3. **🔌 Kabel Dimensjonering Kalkulator** - Finn riktig kabeltverrsnitt
 
-- **Automatisk dekktype-valg**: Velg mellom vinterdekk (8mm/3mm) og sommerdekk (7mm/1,6mm)
-- **Intelligent beregning**: Tar hensyn til både mønsterslitasje og aldersavskrivning
-- **Norsk språk**: Komplett norsk brukergrensesnitt
-- **Responsiv design**: Fungerer på alle enheter
-- **Sanntidsberegning**: Umiddelbare resultater
+## 🚗 Bruktdekk Verdikalkulator
 
-## Hvordan bruke
+**Beskrivelse:** Norsk kalkulator for å beregne nåværende verdi av brukte dekk basert på mønsterdybde, alder og andre faktorer.
 
-1. Åpne `index.html` i en nettleser
-2. Velg dekktype (vinterdekk eller sommerdekk)
-3. Fyll inn nåværende mønsterdybde
-4. Legg inn produksjonsår, nypris og monteringskostnad
-5. Klikk "Beregn dekkverdi" for å få resultatet
+**Funksjoner:**
+- Automatisk dekktype-valg (vinterdekk 8mm/3mm, sommerdekk 7mm/1,6mm)
+- Intelligent beregning med mønsterslitasje og aldersavskrivning
+- Tilstandsvurdering (Utmerket/God/Akseptabel/Dårlig)
+- Monteringskostnad trekkes fra dekkverdien
+- Komplett norsk brukergrensesnitt
 
-## Filer
+**Beregningsmetode:**
+- Mønsterlevetid: Prosent av gjenværende brukbar mønsterdybde
+- Aldersavskrivning: 10% per år etter første år
+- Minimumsverdi: 10% av nypris for sikkerhet
+- Nettoverdi: Etter fradrag av monteringskostnad
 
-- `index.html` - Hovedside med brukergrensesnitt
-- `style.css` - Styling og layout
-- `script.js` - Beregningslogikk og interaktivitet
+**Fil:** `tire-calculator.html`
 
-## Beregningsmetode
+## ⚡ Spenningsfall Kalkulator
 
-1. **Mønsterlevetid**: Beregnes som prosent av gjenværende brukbar mønsterdybde
-2. **Aldersavskrivning**: 10% per år etter første år
-3. **Minimumsverdi**: Minimum 10% av nypris for sikkerhetshensyn
-4. **Nettoverdi**: Monteringskostnad trekkes fra dekkverdien
+**Beskrivelse:** Flerspråklig kalkulator for å beregne spenningsfall i elektriske kabler for riktig kretsdesign og sikkerhet.
 
-## Tilstandsvurdering
+**Funksjoner:**
+- Støtter enfase og trefase systemer
+- Kobber og aluminium kabler
+- Temperaturkompensasjon (-40°C til +90°C)
+- Multiple spenningsnivåer (12V, 13.8V, 24V, 230V, 400V)
+- Automatiske sikkerhetsadvarsler
+- Flerspråklig støtte (engelsk, norsk, tysk, fransk)
 
-- **Utmerket**: >70% mønster igjen
-- **God**: 50-70% mønster igjen  
-- **Akseptabel**: 30-50% mønster igjen
-- **Dårlig**: <30% mønster igjen
+**Beregninger:**
+- Spenningsfall i volt og prosent
+- Spenning ved last
+- Effekttap i watt
+- Kabelmotstand i ohm
+- Fargekoding: Grønn (<3%), gul (3-5%), rød (>5%)
 
-## Teknologi
+**Tekniske detaljer:**
+- Korrekte resistivitetsverdier for materialer
+- Temperaturkoeffisienter
+- Trefase-beregninger med √3 faktor
+- Tur/retur for enfase, enveis for trefase
 
-- HTML5
-- CSS3 med responsive design
-- Vanilla JavaScript
-- Ingen eksterne avhengigheter
+**Fil:** `voltage-drop-calculator.html`
 
-## Lisens
+## 🔌 Kabel Dimensjonering Kalkulator
+
+**Beskrivelse:** Flerspråklig kalkulator som bestemmer nødvendig kabeltverrsnitt basert på ønsket spenning ved last og systemparametere.
+
+**Funksjoner:**
+- Omvendt spenningsfall-beregning
+- Anbefaling av standard kabelstørrelser
+- Sammenligningstabeller med alle størrelser
+- Materiale- og temperaturfaktorer
+- Statusindikatorer (OK/Marginal/Utilstrekkelig)
+- Flerspråklig støtte (engelsk, norsk, tysk, fransk)
+
+**Beregninger:**
+- Maksimalt tillatt spenningsfall
+- Nødvendig kabeltverrsnitt
+- Anbefalt kabel fra standardstørrelser
+- Faktisk spenningsfall med anbefalt kabel
+- Detaljert sammenligningstabeller
+
+**Standard kabelstørrelser:**
+1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240, 300, 400, 500, 630 mm²
+
+**Fil:** `cable-sizing-calculator.html`
+
+## 🚀 Kom i gang
+
+1. **Åpne hovedsiden:** Last `index.html` i en nettleser
+2. **Velg kalkulator:** Klikk på ønsket kalkulator fra hovedsiden
+3. **Fyll inn data:** Legg inn nødvendige parametere
+4. **Få resultater:** Klikk beregn-knappen for umiddelbare resultater
+5. **Naviger:** Bruk "Tilbake til hovedsiden" for å bytte kalkulator
+
+## 📁 Filstruktur
+
+```
+├── index.html                    # Hovedside med kalkulator-oversikt
+├── tire-calculator.html          # Bruktdekk verdikalkulator (norsk)
+├── voltage-drop-calculator.html  # Spenningsfall kalkulator (flerspråklig)
+├── cable-sizing-calculator.html  # Kabel dimensjonering (flerspråklig)
+├── script.js                     # Dekk kalkulator logikk
+├── style.css                     # Dekk kalkulator styling
+├── voltage-drop-script.js        # Spenningsfall logikk
+├── voltage-drop-style.css        # Spenningsfall styling
+├── cable-sizing-script.js        # Kabel dimensjonering logikk
+├── cable-sizing-style.css        # Kabel dimensjonering styling
+└── README.md                     # Denne filen
+```
+
+## 🌐 Språkstøtte
+
+- **Bruktdekk kalkulator:** Kun norsk
+- **Spenningsfall kalkulator:** Engelsk, norsk, tysk, fransk
+- **Kabel dimensjonering:** Engelsk, norsk, tysk, fransk
+
+## 🛠️ Teknologi
+
+- **HTML5** - Moderne markup
+- **CSS3** - Responsiv design med gradients og animasjoner
+- **Vanilla JavaScript** - Ingen eksterne avhengigheter
+- **Responsive design** - Fungerer på alle enheter
+- **Cross-browser kompatibilitet** - Støtter alle moderne nettlesere
+
+## 📊 Nøyaktighet
+
+Alle kalkulatorer følger industristandarder:
+- Elektriske beregninger bruker korrekte resistivitetsverdier
+- Temperaturkoeffisienter er nøyaktige for materialer
+- Dekkvurderinger basert på bransjepraksis
+- Sikkerhetsmarginaler inkludert i alle beregninger
+
+## 📄 Lisens
 
 Dette prosjektet er åpen kildekode og tilgjengelig under MIT-lisensen.
+
+## 🤝 Bidrag
+
+Bidrag er velkommen! Vennligst følg disse retningslinjene:
+- Hold koden ren og kommentert
+- Test alle endringer grundig
+- Følg eksisterende kodestil
+- Oppdater dokumentasjon ved behov
