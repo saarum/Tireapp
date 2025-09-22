@@ -254,14 +254,14 @@ function calculateTireValue() {
     // Calculate final value after remounting cost
     const finalValue = Math.max(0, depreciatedValue - remountingCost);
 
-    // Update display
+    // Update display with correct currency
+    const currency = currentLanguage === 'no' ? 'kr' : '€';
     document.getElementById('treadLife').textContent = `${treadLifeRemaining.toFixed(1)}%`;
     document.getElementById('ageDepreciation').textContent = `${((1 - ageDepreciationFactor) * 100).toFixed(1)}%`;
-    document.getElementById('calculatedValue').textContent = `${depreciatedValue.toFixed(0)} kr`;
-    document.getElementById('finalValue').textContent = `${finalValue.toFixed(0)} kr`;
+    document.getElementById('calculatedValue').textContent = `${depreciatedValue.toFixed(0)} ${currency}`;
+    document.getElementById('finalValue').textContent = `${finalValue.toFixed(0)} ${currency}`;
 
     // Add condition assessment
-    const lang = translations[currentLanguage];
     let condition = '';
     let conditionClass = '';
     if (treadLifeRemaining > 70) {
