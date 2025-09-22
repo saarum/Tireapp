@@ -3,6 +3,7 @@ const translations = {
     en: {
         title: "Voltage Drop Calculator",
         language: "Language:",
+        backToHome: "← Back to Home",
         voltage: "System Voltage (V)",
         current: "Current (A)",
         length: "Cable Length (m)",
@@ -36,6 +37,7 @@ const translations = {
     no: {
         title: "Spenningsfall Kalkulator",
         language: "Språk:",
+        backToHome: "← Tilbake til hovedsiden",
         voltage: "Systemspenning (V)",
         current: "Strøm (A)",
         length: "Kabellengde (m)",
@@ -69,6 +71,7 @@ const translations = {
     de: {
         title: "Spannungsfall Rechner",
         language: "Sprache:",
+        backToHome: "← Zurück zur Startseite",
         voltage: "Systemspannung (V)",
         current: "Strom (A)",
         length: "Kabellänge (m)",
@@ -102,6 +105,7 @@ const translations = {
     fr: {
         title: "Calculateur de Chute de Tension",
         language: "Langue:",
+        backToHome: "← Retour à l'accueil",
         voltage: "Tension du Système (V)",
         current: "Courant (A)",
         length: "Longueur du Câble (m)",

@@ -45,8 +45,8 @@
 
         .calculators {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-bottom: 40px;
         }
 
@@ -192,6 +192,23 @@
                 </div>
                 
                 <a href="voltage-drop-calculator.html" class="btn secondary">Open Voltage Calculator</a>
+            </div>
+
+            <div class="calculator-card">
+                <h2>🔌 Cable Sizing Calculator</h2>
+                <p>Determine the required cable cross-section based on desired voltage at load and system parameters.</p>
+                
+                <div class="features">
+                    <ul>
+                        <li>Reverse voltage drop calculation</li>
+                        <li>Standard cable size recommendations</li>
+                        <li>Comparison table with all sizes</li>
+                        <li>Material and temperature factors</li>
+                        <li>Status indicators (OK/Marginal/Insufficient)</li>
+                    </ul>
+                </div>
+                
+                <a href="cable-sizing-calculator.html" class="btn" style="background: #27ae60;">Open Cable Sizing</a>
             </div>
         </div>
 

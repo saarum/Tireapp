@@ -10,14 +10,17 @@
 
 <body>
     <div class="calculator">
-        <div class="language-selector">
-            <label for="languageSelect" data-translate="language">Language:</label>
-            <select id="languageSelect" onchange="changeLanguage()">
-                <option value="en">English</option>
-                <option value="no">Norsk</option>
-                <option value="de">Deutsch</option>
-                <option value="fr">Français</option>
-            </select>
+        <div class="header-nav">
+            <a href="index.html" class="back-link" data-translate="backToHome">← Back to Home</a>
+            <div class="language-selector">
+                <label for="languageSelect" data-translate="language">Language:</label>
+                <select id="languageSelect" onchange="changeLanguage()">
+                    <option value="en">English</option>
+                    <option value="no">Norsk</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
         </div>
 
         <h1 data-translate="title">Used Tire Value Calculator</h1>
