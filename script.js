@@ -12,17 +12,17 @@ function calculateTireValue() {
     if (isNaN(currentTread) || isNaN(newTread) || isNaN(minTread) || 
         isNaN(productionYear) || isNaN(originalPrice) || isNaN(mountingCost) || 
         isNaN(expectedLifespan)) {
-        alert('Please fill in all fields with valid numbers');
+        alert('Vennligst fyll ut alle felt med gyldige tall');
         return;
     }
     
     if (currentTread < minTread) {
-        alert('Current tread depth is below minimum safe level!');
+        alert('Nåværende mønsterdybde er under minimum sikkerhetsnivå!');
         return;
     }
     
     if (currentTread > newTread) {
-        alert('Current tread depth cannot be greater than new tread depth');
+        alert('Nåværende mønsterdybde kan ikke være større enn ny mønsterdybde');
         return;
     }
     
@@ -65,20 +65,20 @@ function calculateTireValue() {
     // Add condition assessment
     let condition = '';
     if (treadLifeRemaining > 70) {
-        condition = ' (Excellent)';
+        condition = ' (Utmerket)';
     } else if (treadLifeRemaining > 50) {
-        condition = ' (Good)';
+        condition = ' (God)';
     } else if (treadLifeRemaining > 30) {
-        condition = ' (Fair)';
+        condition = ' (Akseptabel)';
     } else {
-        condition = ' (Poor)';
+        condition = ' (Dårlig)';
     }
     
     document.getElementById('treadLife').textContent += condition;
     
     // Age warning
     if (tireAge > 6) {
-        document.getElementById('ageFactor').textContent += ' (Consider replacement due to age)';
+        document.getElementById('ageFactor').textContent += ' (Vurder utskifting pga. alder)';
     }
 }
 
@@ -97,13 +97,13 @@ function updateTreadDepths() {
     if (tireType === 'winter') {
         newTreadInput.value = '8.0';
         minTreadInput.value = '3.0';
-        newTreadInput.placeholder = '8.0';
-        minTreadInput.placeholder = '3.0';
+        newTreadInput.placeholder = '8,0';
+        minTreadInput.placeholder = '3,0';
     } else if (tireType === 'summer') {
         newTreadInput.value = '7.0';
         minTreadInput.value = '1.6';
-        newTreadInput.placeholder = '7.0';
-        minTreadInput.placeholder = '1.6';
+        newTreadInput.placeholder = '7,0';
+        minTreadInput.placeholder = '1,6';
     }
 }
 
