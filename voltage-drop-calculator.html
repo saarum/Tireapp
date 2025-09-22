@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title">Voltage Drop Calculator</title>
+    <link rel="stylesheet" href="voltage-drop-style.css">
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="language-selector">
+            <label for="languageSelect" data-translate="language">Language:</label>
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="no">Norsk</option>
+                <option value="de">Deutsch</option>
+                <option value="fr">Français</option>
+            </select>
+        </div>
+
+        <h1 data-translate="title">Voltage Drop Calculator</h1>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label for="voltage" data-translate="voltage">System Voltage (V)</label>
+                <select id="voltage">
+                    <option value="12">12V DC</option>
+                    <option value="13.8">13.8V DC</option>
+                    <option value="24">24V DC</option>
+                    <option value="230" selected>230V AC</option>
+                    <option value="400">400V AC (3-phase)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="current" data-translate="current">Current (A)</label>
+                <input type="number" id="current" step="0.1" min="0" data-placeholder="currentPlaceholder">
+            </div>
+
+            <div class="input-group">
+                <label for="length" data-translate="length">Cable Length (m)</label>
+                <input type="number" id="length" step="0.1" min="0" data-placeholder="lengthPlaceholder">
+            </div>
+
+            <div class="input-group">
+                <label for="cableType" data-translate="cableType">Cable Type</label>
+                <select id="cableType" onchange="updateConductivity()">
+                    <option value="copper" data-translate="copper">Copper</option>
+                    <option value="aluminum" data-translate="aluminum">Aluminum</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="crossSection" data-translate="crossSection">Cross Section (mm²)</label>
+                <select id="crossSection">
+                    <option value="1.5">1.5 mm²</option>
+                    <option value="2.5" selected>2.5 mm²</option>
+                    <option value="4">4 mm²</option>
+                    <option value="6">6 mm²</option>
+                    <option value="10">10 mm²</option>
+                    <option value="16">16 mm²</option>
+                    <option value="25">25 mm²</option>
+                    <option value="35">35 mm²</option>
+                    <option value="50">50 mm²</option>
+                    <option value="70">70 mm²</option>
+                    <option value="95">95 mm²</option>
+                    <option value="120">120 mm²</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="phases" data-translate="phases">System Type</label>
+                <select id="phases">
+                    <option value="1" data-translate="singlePhase">Single Phase</option>
+                    <option value="3" data-translate="threePhase">Three Phase</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="temperature" data-translate="temperature">Temperature (°C)</label>
+                <input type="number" id="temperature" value="20" min="-40" max="90"
+                    data-placeholder="temperaturePlaceholder">
+            </div>
+        </div>
+
+        <button onclick="calculateVoltageDrop()" class="btn calculate" data-translate="calculateButton">Calculate
+            Voltage Drop</button>
+
+        <div class="results" id="results">
+            <div class="result-item">
+                <span class="label" data-translate="voltageDrop">Voltage Drop:</span>
+                <span class="value" id="voltageDropValue">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label" data-translate="voltageDropPercent">Voltage Drop (%):</span>
+                <span class="value highlight" id="voltageDropPercent">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label" data-translate="voltageAtLoad">Voltage at Load:</span>
+                <span class="value" id="voltageAtLoad">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label" data-translate="powerLoss">Power Loss:</span>
+                <span class="value" id="powerLoss">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label" data-translate="resistance">Cable Resistance:</span>
+                <span class="value" id="resistance">-</span>
+            </div>
+        </div>
+
+        <div class="info">
+            <h3 data-translate="howItWorks">How it works:</h3>
+            <ul>
+                <li data-translate="howItWorks1">Voltage drop is calculated using Ohm's law: V = I × R</li>
+                <li data-translate="howItWorks2">Cable resistance depends on material, length, cross-section and
+                    temperature</li>
+                <li data-translate="howItWorks3">Recommended maximum voltage drop: 3% for lighting, 5% for power
+                    circuits</li>
+                <li data-translate="howItWorks4">Three-phase calculations use line-to-line voltage and √3 factor</li>
+            </ul>
+        </div>
+
+        <div class="warning" id="warning" style="display: none;">
+            <h3 data-translate="warning">⚠️ Warning</h3>
+            <p id="warningText"></p>
+        </div>
+    </div>
+    <script src="voltage-drop-script.js"></script>
+</body>
+
+</html>

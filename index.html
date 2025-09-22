@@ -1,94 +1,204 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruktdekk Verdikalkulator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Calculator Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .calculators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .calculator-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .calculator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #3498db;
+        }
+
+        .calculator-card h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .calculator-card p {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .calculator-card .features {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .calculator-card .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .calculator-card .features li {
+            color: #34495e;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .calculator-card .features li:before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn.secondary {
+            background: #e74c3c;
+        }
+
+        .btn.secondary:hover {
+            background: #c0392b;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid #ecf0f1;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .calculators {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="calculator">
-        <h1>Bruktdekk Verdikalkulator</h1>
+    <div class="container">
+        <h1>🧮 Calculator Collection</h1>
+        <p class="subtitle">Professional calculators for specialized calculations</p>
 
-        <div class="input-section">
-            <div class="input-group">
-                <label for="tireType">Dekktype</label>
-                <select id="tireType" onchange="updateTreadDepths()">
-                    <option value="winter">Vinterdekk (8mm ny / 3mm min)</option>
-                    <option value="summer">Sommerdekk (7mm ny / 1,6mm min)</option>
-                </select>
+        <div class="calculators">
+            <div class="calculator-card">
+                <h2>🚗 Tire Value Calculator</h2>
+                <p>Calculate the current value of used tires based on tread depth, age, and other factors.</p>
+                
+                <div class="features">
+                    <ul>
+                        <li>Winter & Summer tire presets</li>
+                        <li>Age depreciation calculation</li>
+                        <li>Mounting cost consideration</li>
+                        <li>Multi-language support</li>
+                        <li>Condition assessment</li>
+                    </ul>
+                </div>
+                
+                <a href="tire-calculator.html" class="btn">Open Tire Calculator</a>
             </div>
 
-            <div class="input-group">
-                <label for="currentTread">Nåværende mønsterdybde (mm)</label>
-                <input type="number" id="currentTread" step="0.1" min="0" placeholder="f.eks. 5,5">
-            </div>
-
-            <div class="input-group">
-                <label for="newTread">Mønsterdybde som ny (mm)</label>
-                <input type="number" id="newTread" step="0.1" min="0" placeholder="8,0" readonly>
-            </div>
-
-            <div class="input-group">
-                <label for="minTread">Minimum mønsterdybde (mm)</label>
-                <input type="number" id="minTread" step="0.1" min="0" placeholder="3,0" readonly>
-            </div>
-
-            <div class="input-group">
-                <label for="productionYear">Produksjonsår</label>
-                <input type="number" id="productionYear" min="1990" max="2025" placeholder="f.eks. 2020">
-            </div>
-
-            <div class="input-group">
-                <label for="originalPrice">Nypris (kr)</label>
-                <input type="number" id="originalPrice" step="0.01" min="0" placeholder="f.eks. 10000">
-            </div>
-
-            <div class="input-group">
-                <label for="mountingCost">Monteringskostnad (kr)</label>
-                <input type="number" id="mountingCost" step="0.01" min="0" placeholder="f.eks. 1200">
-            </div>
-
-            <div class="input-group">
-                <label for="expectedLifespan">Forventet levetid (år)</label>
-                <input type="number" id="expectedLifespan" min="1" max="20" placeholder="f.eks. 7">
+            <div class="calculator-card">
+                <h2>⚡ Voltage Drop Calculator</h2>
+                <p>Calculate voltage drop in electrical cables for proper circuit design and safety.</p>
+                
+                <div class="features">
+                    <ul>
+                        <li>Single & Three-phase systems</li>
+                        <li>Copper & Aluminum cables</li>
+                        <li>Temperature compensation</li>
+                        <li>Multiple voltage levels</li>
+                        <li>Safety warnings</li>
+                    </ul>
+                </div>
+                
+                <a href="voltage-drop-calculator.html" class="btn secondary">Open Voltage Calculator</a>
             </div>
         </div>
 
-        <button onclick="calculateTireValue()" class="btn calculate">Beregn dekkverdi</button>
-
-        <div class="results" id="results">
-            <div class="result-item">
-                <span class="label">Gjenværende mønster:</span>
-                <span class="value" id="treadLife">-</span>
-            </div>
-            <div class="result-item">
-                <span class="label">Aldersfaktor:</span>
-                <span class="value" id="ageFactor">-</span>
-            </div>
-            <div class="result-item">
-                <span class="label">Netto dekkverdi (etter montering):</span>
-                <span class="value highlight" id="currentValue">-</span>
-            </div>
-            <div class="result-item">
-                <span class="label">Endelig verdi:</span>
-                <span class="value" id="totalCost">-</span>
-            </div>
-        </div>
-
-        <div class="info">
-            <h3>Slik fungerer det:</h3>
-            <ul>
-                <li>Gjenværende mønster beregnes basert på nåværende vs. ny mønsterdybde</li>
-                <li>Aldersavskrivning på 10% per år etter første år</li>
-                <li>Minimumsverdi settes til 10% av nypris for sikkerhetsdekk</li>
-                <li>Monteringskostnad trekkes fra dekkverdien for å vise nettoverdi</li>
-            </ul>
+        <div class="footer">
+            <p>Professional calculators built with precision and care. All calculations follow industry standards.</p>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 
 </html>
