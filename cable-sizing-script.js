@@ -7,7 +7,7 @@ const translations = {
         sourceVoltage: "Source Voltage (V)",
         targetVoltage: "Required Voltage at Load (V)",
         current: "Current (A)",
-        length: "Cable Length (m)",
+        length: "Cable Length - One Way (m)",
         cableType: "Cable Type",
         copper: "Copper",
         aluminum: "Aluminum",
@@ -28,9 +28,10 @@ const translations = {
         status: "Status",
         howItWorks: "How it works:",
         howItWorks1: "Calculates required cross-section based on acceptable voltage drop",
-        howItWorks2: "Shows comparison table with standard cable sizes",
-        howItWorks3: "Recommends the smallest suitable cable from standard sizes",
-        howItWorks4: "Considers cable material, temperature and system type",
+        howItWorks2: "Cable length is given one-way, calculation includes return cable",
+        howItWorks3: "Shows comparison table with standard cable sizes",
+        howItWorks4: "Recommends the smallest suitable cable from standard sizes",
+        howItWorks5: "Considers cable material, temperature and system type",
         warning: "⚠️ Warning",
         targetVoltagePlaceholder: "e.g., 220",
         currentPlaceholder: "e.g., 16",
@@ -50,7 +51,7 @@ const translations = {
         sourceVoltage: "Kildespenning (V)",
         targetVoltage: "Ønsket spenning ved last (V)",
         current: "Strøm (A)",
-        length: "Kabellengde (m)",
+        length: "Kabellengde - En vei (m)",
         cableType: "Kabeltype",
         copper: "Kobber",
         aluminum: "Aluminium",
@@ -71,9 +72,10 @@ const translations = {
         status: "Status",
         howItWorks: "Slik fungerer det:",
         howItWorks1: "Beregner nødvendig tverrsnitt basert på akseptabelt spenningsfall",
-        howItWorks2: "Viser sammenligningstabeller med standard kabelstørrelser",
-        howItWorks3: "Anbefaler den minste passende kabelen fra standardstørrelser",
-        howItWorks4: "Tar hensyn til kabelmateriale, temperatur og systemtype",
+        howItWorks2: "Kabellengde angis en vei, beregning inkluderer returkabel",
+        howItWorks3: "Viser sammenligningstabeller med standard kabelstørrelser",
+        howItWorks4: "Anbefaler den minste passende kabelen fra standardstørrelser",
+        howItWorks5: "Tar hensyn til kabelmateriale, temperatur og systemtype",
         warning: "⚠️ Advarsel",
         targetVoltagePlaceholder: "f.eks. 220",
         currentPlaceholder: "f.eks. 16",
@@ -93,7 +95,7 @@ const translations = {
         sourceVoltage: "Quellspannung (V)",
         targetVoltage: "Erforderliche Spannung an der Last (V)",
         current: "Strom (A)",
-        length: "Kabellänge (m)",
+        length: "Kabellänge - Ein Weg (m)",
         cableType: "Kabeltyp",
         copper: "Kupfer",
         aluminum: "Aluminium",
@@ -114,9 +116,10 @@ const translations = {
         status: "Status",
         howItWorks: "So funktioniert es:",
         howItWorks1: "Berechnet erforderlichen Querschnitt basierend auf akzeptablem Spannungsfall",
-        howItWorks2: "Zeigt Vergleichstabelle mit Standard-Kabelgrößen",
-        howItWorks3: "Empfiehlt das kleinste geeignete Kabel aus Standardgrößen",
-        howItWorks4: "Berücksichtigt Kabelmaterial, Temperatur und Systemtyp",
+        howItWorks2: "Kabellänge wird ein Weg angegeben, Berechnung inkludiert Rückkabel",
+        howItWorks3: "Zeigt Vergleichstabelle mit Standard-Kabelgrößen",
+        howItWorks4: "Empfiehlt das kleinste geeignete Kabel aus Standardgrößen",
+        howItWorks5: "Berücksichtigt Kabelmaterial, Temperatur und Systemtyp",
         warning: "⚠️ Warnung",
         targetVoltagePlaceholder: "z.B. 220",
         currentPlaceholder: "z.B. 16",
@@ -136,7 +139,7 @@ const translations = {
         sourceVoltage: "Tension Source (V)",
         targetVoltage: "Tension Requise à la Charge (V)",
         current: "Courant (A)",
-        length: "Longueur du Câble (m)",
+        length: "Longueur du Câble - Un Sens (m)",
         cableType: "Type de Câble",
         copper: "Cuivre",
         aluminum: "Aluminium",
@@ -157,9 +160,10 @@ const translations = {
         status: "Statut",
         howItWorks: "Comment ça marche:",
         howItWorks1: "Calcule la section requise basée sur la chute de tension acceptable",
-        howItWorks2: "Montre un tableau de comparaison avec les tailles de câbles standard",
-        howItWorks3: "Recommande le plus petit câble approprié parmi les tailles standard",
-        howItWorks4: "Considère le matériau du câble, la température et le type de système",
+        howItWorks2: "Longueur du câble donnée un sens, calcul inclut le câble de retour",
+        howItWorks3: "Montre un tableau de comparaison avec les tailles de câbles standard",
+        howItWorks4: "Recommande le plus petit câble approprié parmi les tailles standard",
+        howItWorks5: "Considère le matériau du câble, la température et le type de système",
         warning: "⚠️ Avertissement",
         targetVoltagePlaceholder: "ex. 220",
         currentPlaceholder: "ex. 16",
@@ -199,7 +203,7 @@ function changeLanguage() {
 
 function updateTexts() {
     const lang = translations[currentLanguage];
-    
+
     document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
         if (lang[key]) {
@@ -210,13 +214,13 @@ function updateTexts() {
             }
         }
     });
-    
+
     document.documentElement.lang = currentLanguage === 'no' ? 'no' : currentLanguage;
 }
 
 function updatePlaceholders() {
     const lang = translations[currentLanguage];
-    
+
     document.querySelectorAll('[data-placeholder]').forEach(element => {
         const key = element.getAttribute('data-placeholder');
         if (lang[key]) {
@@ -227,7 +231,7 @@ function updatePlaceholders() {
 
 function calculateCableSize() {
     const lang = translations[currentLanguage];
-    
+
     // Get input values
     const sourceVoltage = parseFloat(document.getElementById('sourceVoltage').value);
     const targetVoltage = parseFloat(document.getElementById('targetVoltage').value);
@@ -236,27 +240,27 @@ function calculateCableSize() {
     const cableType = document.getElementById('cableType').value;
     const phases = parseInt(document.getElementById('phases').value);
     const temperature = parseFloat(document.getElementById('temperature').value);
-    
+
     // Validate inputs
     if (isNaN(targetVoltage) || isNaN(current) || isNaN(length) || isNaN(temperature)) {
         alert(lang.alertFillFields);
         return;
     }
-    
+
     if (targetVoltage >= sourceVoltage) {
         alert(lang.alertInvalidVoltage);
         return;
     }
-    
+
     // Calculate maximum allowable voltage drop
     const maxVoltageDrop = sourceVoltage - targetVoltage;
     const maxVoltageDropPercent = (maxVoltageDrop / sourceVoltage) * 100;
-    
+
     // Calculate resistance per meter at given temperature
     const rho20 = resistivity[cableType];
     const alpha = tempCoeff[cableType];
     const rhoTemp = rho20 * (1 + alpha * (temperature - 20));
-    
+
     // Calculate required resistance
     let requiredTotalResistance;
     if (phases === 1) {
@@ -264,45 +268,45 @@ function calculateCableSize() {
     } else {
         requiredTotalResistance = maxVoltageDrop / (current * Math.sqrt(3));
     }
-    
+
     // Calculate required cross-section
     const resistancePerMeter = requiredTotalResistance / (length * (phases === 1 ? 2 : 1));
     const requiredCrossSection = rhoTemp / resistancePerMeter;
-    
+
     // Find recommended cable from standard sizes
     const recommendedCable = standardCables.find(size => size >= requiredCrossSection);
-    
+
     // Calculate actual voltage drop with recommended cable
     let actualVoltageDrop = 0;
     let actualVoltageAtLoad = sourceVoltage;
-    
+
     if (recommendedCable) {
         const actualResistancePerMeter = rhoTemp / recommendedCable;
         const actualTotalResistance = actualResistancePerMeter * length * (phases === 1 ? 2 : 1);
-        
+
         if (phases === 1) {
             actualVoltageDrop = current * actualTotalResistance;
         } else {
             actualVoltageDrop = current * actualTotalResistance * Math.sqrt(3);
         }
-        
+
         actualVoltageAtLoad = sourceVoltage - actualVoltageDrop;
     }
-    
+
     // Update display
     document.getElementById('maxVoltageDropValue').textContent = `${maxVoltageDrop.toFixed(2)} V`;
     document.getElementById('maxVoltageDropPercent').textContent = `${maxVoltageDropPercent.toFixed(2)}%`;
     document.getElementById('requiredCrossSection').textContent = `${requiredCrossSection.toFixed(2)} mm²`;
     document.getElementById('recommendedCable').textContent = recommendedCable ? `${recommendedCable} mm²` : 'N/A';
-    document.getElementById('actualVoltageDrop').textContent = `${actualVoltageDrop.toFixed(2)} V (${((actualVoltageDrop/sourceVoltage)*100).toFixed(1)}%)`;
-    
+    document.getElementById('actualVoltageDrop').textContent = `${actualVoltageDrop.toFixed(2)} V (${((actualVoltageDrop / sourceVoltage) * 100).toFixed(1)}%)`;
+
     // Generate cable comparison table
     generateCableTable(sourceVoltage, current, length, cableType, phases, temperature, targetVoltage);
-    
+
     // Show warnings
     const warningDiv = document.getElementById('warning');
     const warningText = document.getElementById('warningText');
-    
+
     if (requiredCrossSection > 500) {
         warningDiv.style.display = 'block';
         warningText.textContent = lang.warningLargeCable;
@@ -315,26 +319,26 @@ function generateCableTable(sourceVoltage, current, length, cableType, phases, t
     const lang = translations[currentLanguage];
     const tbody = document.getElementById('cableTableBody');
     tbody.innerHTML = '';
-    
+
     // Calculate resistance per meter at given temperature
     const rho20 = resistivity[cableType];
     const alpha = tempCoeff[cableType];
     const rhoTemp = rho20 * (1 + alpha * (temperature - 20));
-    
+
     standardCables.forEach(crossSection => {
         const resistancePerMeter = rhoTemp / crossSection;
         const totalResistance = resistancePerMeter * length * (phases === 1 ? 2 : 1);
-        
+
         let voltageDrop;
         if (phases === 1) {
             voltageDrop = current * totalResistance;
         } else {
             voltageDrop = current * totalResistance * Math.sqrt(3);
         }
-        
+
         const voltageAtLoad = sourceVoltage - voltageDrop;
         const voltageDropPercent = (voltageDrop / sourceVoltage) * 100;
-        
+
         // Determine status
         let status, statusClass;
         if (voltageAtLoad >= targetVoltage) {
@@ -352,7 +356,7 @@ function generateCableTable(sourceVoltage, current, length, cableType, phases, t
             status = lang.statusInsufficient;
             statusClass = 'status-insufficient';
         }
-        
+
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${crossSection} mm²</td>
@@ -360,20 +364,20 @@ function generateCableTable(sourceVoltage, current, length, cableType, phases, t
             <td>${voltageAtLoad.toFixed(1)} V</td>
             <td class="${statusClass}">${status}</td>
         `;
-        
+
         tbody.appendChild(row);
     });
 }
 
 // Add Enter key support for calculation
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         calculateCableSize();
     }
 });
 
 // Initialize on page load
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     document.getElementById('languageSelect').value = 'en';
     currentLanguage = 'en';
     updateTexts();

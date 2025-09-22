@@ -29,7 +29,7 @@
             <div class="input-group">
                 <label for="voltage" data-translate="voltage">System Voltage (V)</label>
                 <select id="voltage">
-                    <option value="12">12V DC</option>
+                    <option value="12.8">12.8V DC</option>
                     <option value="13.8">13.8V DC</option>
                     <option value="24">24V DC</option>
                     <option value="230" selected>230V AC</option>
@@ -43,7 +43,7 @@
             </div>
 
             <div class="input-group">
-                <label for="length" data-translate="length">Cable Length (m)</label>
+                <label for="length" data-translate="length">Cable Length - One Way (m)</label>
                 <input type="number" id="length" step="0.1" min="0" data-placeholder="lengthPlaceholder">
             </div>
 
@@ -118,11 +118,12 @@
             <h3 data-translate="howItWorks">How it works:</h3>
             <ul>
                 <li data-translate="howItWorks1">Voltage drop is calculated using Ohm's law: V = I × R</li>
-                <li data-translate="howItWorks2">Cable resistance depends on material, length, cross-section and
+                <li data-translate="howItWorks2">Cable length is given one-way, calculation includes return cable</li>
+                <li data-translate="howItWorks3">Cable resistance depends on material, length, cross-section and
                     temperature</li>
-                <li data-translate="howItWorks3">Recommended maximum voltage drop: 3% for lighting, 5% for power
+                <li data-translate="howItWorks4">Recommended maximum voltage drop: 3% for lighting, 5% for power
                     circuits</li>
-                <li data-translate="howItWorks4">Three-phase calculations use line-to-line voltage and √3 factor</li>
+                <li data-translate="howItWorks5">Three-phase calculations use line-to-line voltage and √3 factor</li>
             </ul>
         </div>
 

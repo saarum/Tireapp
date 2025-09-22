@@ -29,7 +29,7 @@
             <div class="input-group">
                 <label for="sourceVoltage" data-translate="sourceVoltage">Source Voltage (V)</label>
                 <select id="sourceVoltage">
-                    <option value="12">12V DC</option>
+                    <option value="12.8">12.8V DC</option>
                     <option value="13.8">13.8V DC</option>
                     <option value="24">24V DC</option>
                     <option value="230" selected>230V AC</option>
@@ -48,7 +48,7 @@
             </div>
 
             <div class="input-group">
-                <label for="length" data-translate="length">Cable Length (m)</label>
+                <label for="length" data-translate="length">Cable Length - One Way (m)</label>
                 <input type="number" id="length" step="0.1" min="0" data-placeholder="lengthPlaceholder">
             </div>
 
@@ -119,9 +119,10 @@
             <h3 data-translate="howItWorks">How it works:</h3>
             <ul>
                 <li data-translate="howItWorks1">Calculates required cross-section based on acceptable voltage drop</li>
-                <li data-translate="howItWorks2">Shows comparison table with standard cable sizes</li>
-                <li data-translate="howItWorks3">Recommends the smallest suitable cable from standard sizes</li>
-                <li data-translate="howItWorks4">Considers cable material, temperature and system type</li>
+                <li data-translate="howItWorks2">Cable length is given one-way, calculation includes return cable</li>
+                <li data-translate="howItWorks3">Shows comparison table with standard cable sizes</li>
+                <li data-translate="howItWorks4">Recommends the smallest suitable cable from standard sizes</li>
+                <li data-translate="howItWorks5">Considers cable material, temperature and system type</li>
             </ul>
         </div>
 
