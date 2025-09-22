@@ -12,14 +12,14 @@ Denne samlingen inneholder tre spesialiserte kalkulatorer:
 
 ## 🚗 Bruktdekk Verdikalkulator
 
-**Beskrivelse:** Norsk kalkulator for å beregne nåværende verdi av brukte dekk basert på mønsterdybde, alder og andre faktorer.
+**Beskrivelse:** Flerspråklig kalkulator for å beregne nåværende verdi av brukte dekk basert på mønsterdybde, alder og andre faktorer.
 
 **Funksjoner:**
 - Automatisk dekktype-valg (vinterdekk 8mm/3mm, sommerdekk 7mm/1,6mm)
 - Intelligent beregning med mønsterslitasje og aldersavskrivning
 - Tilstandsvurdering (Utmerket/God/Akseptabel/Dårlig)
 - Monteringskostnad trekkes fra dekkverdien
-- Komplett norsk brukergrensesnitt
+- Flerspråklig støtte (engelsk, norsk, tysk, fransk)
 
 **Beregningsmetode:**
 - Mønsterlevetid: Prosent av gjenværende brukbar mønsterdybde
@@ -106,7 +106,7 @@ Denne samlingen inneholder tre spesialiserte kalkulatorer:
 
 ## 🌐 Språkstøtte
 
-- **Bruktdekk kalkulator:** Kun norsk
+- **Bruktdekk kalkulator:** Engelsk, norsk, tysk, fransk
 - **Spenningsfall kalkulator:** Engelsk, norsk, tysk, fransk
 - **Kabel dimensjonering:** Engelsk, norsk, tysk, fransk
 
