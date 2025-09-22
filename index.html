@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Tire Value Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="calculator">
+        <h1>Used Tire Value Calculator</h1>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label for="tireType">Tire Type</label>
+                <select id="tireType" onchange="updateTreadDepths()">
+                    <option value="winter">Winter Tires (8mm new / 3mm min)</option>
+                    <option value="summer">Summer Tires (7mm new / 1.6mm min)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="currentTread">Current Tread Depth (mm)</label>
+                <input type="number" id="currentTread" step="0.1" min="0" placeholder="e.g., 5.5">
+            </div>
+
+            <div class="input-group">
+                <label for="newTread">Tread Depth When New (mm)</label>
+                <input type="number" id="newTread" step="0.1" min="0" placeholder="8.0" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="minTread">Minimum Tread Depth (mm)</label>
+                <input type="number" id="minTread" step="0.1" min="0" placeholder="3.0" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="productionYear">Production Year</label>
+                <input type="number" id="productionYear" min="1990" max="2025" placeholder="e.g., 2020">
+            </div>
+
+            <div class="input-group">
+                <label for="originalPrice">Original Price (kr)</label>
+                <input type="number" id="originalPrice" step="0.01" min="0" placeholder="e.g., 10000">
+            </div>
+
+            <div class="input-group">
+                <label for="mountingCost">Mounting Cost (kr)</label>
+                <input type="number" id="mountingCost" step="0.01" min="0" placeholder="e.g., 1200">
+            </div>
+
+            <div class="input-group">
+                <label for="expectedLifespan">Expected Lifespan (years)</label>
+                <input type="number" id="expectedLifespan" min="1" max="20" placeholder="e.g., 7">
+            </div>
+        </div>
+
+        <button onclick="calculateTireValue()" class="btn calculate">Calculate Tire Value</button>
+
+        <div class="results" id="results">
+            <div class="result-item">
+                <span class="label">Tread Life Remaining:</span>
+                <span class="value" id="treadLife">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label">Age Factor:</span>
+                <span class="value" id="ageFactor">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label">Net Tire Value (after mounting cost):</span>
+                <span class="value highlight" id="currentValue">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label">Final Value:</span>
+                <span class="value" id="totalCost">-</span>
+            </div>
+        </div>
+
+        <div class="info">
+            <h3>How it works:</h3>
+            <ul>
+                <li>Tread life remaining is calculated based on current vs. new tread depth</li>
+                <li>Age depreciation applies 10% per year after the first year</li>
+                <li>Minimum value is set to 10% of original price for safety tires</li>
+                <li>Mounting cost is deducted from the tire value to show net worth</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
