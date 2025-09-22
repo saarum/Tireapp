@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title">Tire Value Calculator</title>
+    <link rel="stylesheet" href="tire-value-style.css">
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="header-nav">
+            <a href="index.html" class="back-link" data-translate="backToHome">← Back to Home</a>
+            <div class="language-selector">
+                <label for="languageSelect" data-translate="language">Language:</label>
+                <select id="languageSelect" onchange="changeLanguage()">
+                    <option value="en">English</option>
+                    <option value="no">Norsk</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </div>
+
+        <h1 data-translate="title">Tire Value Calculator</h1>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label for="tireType" data-translate="tireType">Tire Type</label>
+                <select id="tireType" onchange="updateTreadDepths()">
+                    <option value="winter" data-translate="winterTires">Winter Tires (8mm new / 3mm scrap)</option>
+                    <option value="summer" data-translate="summerTires">Summer Tires (7mm new / 1.6mm scrap)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="currentTread" data-translate="currentTread">Current Tread Depth (mm)</label>
+                <input type="number" id="currentTread" step="0.1" min="0" data-placeholder="currentTreadPlaceholder">
+            </div>
+
+            <div class="input-group">
+                <label for="newTread" data-translate="newTread">New Depth (mm)</label>
+                <input type="number" id="newTread" step="0.1" min="0" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="minTread" data-translate="minTread">Scrap Depth (mm)</label>
+                <input type="number" id="minTread" step="0.1" min="0" readonly>
+            </div>
+
+            <div class="input-group">
+                <label for="originalPrice" data-translate="originalPrice">Original Price</label>
+                <input type="number" id="originalPrice" step="0.01" min="0" data-placeholder="originalPricePlaceholder">
+            </div>
+
+            <div class="input-group">
+                <label for="remountingCost" data-translate="remountingCost">Remounting Cost</label>
+                <input type="number" id="remountingCost" step="0.01" min="0" data-placeholder="remountingCostPlaceholder">
+            </div>
+
+            <div class="input-group">
+                <label for="ageYears" data-translate="ageYears">Age (years)</label>
+                <input type="number" id="ageYears" min="0" max="15" data-placeholder="ageYearsPlaceholder">
+            </div>
+        </div>
+
+        <button onclick="calculateTireValue()" class="btn calculate" data-translate="calculateButton">Calculate Tire Value</button>
+
+        <div class="results" id="results">
+            <div class="result-item">
+                <span class="label" data-translate="remainingTread">Remaining Tread:</span>
+                <span class="value" id="treadLife">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label" data-translate="ageDepreciation">Age Depreciation:</span>
+                <span class="value" id="ageDepreciation">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label" data-translate="calculatedValue">Calculated Value:</span>
+                <span class="value highlight" id="calculatedValue">-</span>
+            </div>
+            <div class="result-item">
+                <span class="label" data-translate="finalValue">Value After Remounting:</span>
+                <span class="value" id="finalValue">-</span>
+            </div>
+        </div>
+
+        <div class="info">
+            <h3 data-translate="howItWorks">How it works:</h3>
+            <ul>
+                <li data-translate="howItWorks1">Remaining tread calculated from current vs. scrap depth</li>
+                <li data-translate="howItWorks2">Linear depreciation over 7 years (approx. 14% per year)</li>
+                <li data-translate="howItWorks3">Winter tires: 8mm new, 3mm scrap</li>
+                <li data-translate="howItWorks4">Summer tires: 7mm new, 1.6mm scrap</li>
+                <li data-translate="howItWorks5">Remounting cost deducted from calculated value</li>
+            </ul>
+        </div>
+
+        <div class="warning" id="warning" style="display: none;">
+            <h3 data-translate="warning">⚠️ Warning</h3>
+            <p id="warningText"></p>
+        </div>
+    </div>
+    <script src="tire-value-script.js"></script>
+</body>
+
+</html>

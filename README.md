@@ -1,33 +1,13 @@
-# Kalkulator Samling
+# Elektrisk Kalkulator Samling
 
-En samling av profesjonelle web-baserte kalkulatorer for spesialiserte beregninger. Alle kalkulatorene er bygget med moderne web-teknologi og følger industristandarder.
+En samling av profesjonelle web-baserte kalkulatorer for elektriske beregninger. Alle kalkulatorene er bygget med moderne web-teknologi og følger industristandarder.
 
-## 🧮 Oversikt
+## ⚡ Oversikt
 
-Denne samlingen inneholder tre spesialiserte kalkulatorer:
+Denne samlingen inneholder to spesialiserte elektriske kalkulatorer:
 
-1. **🚗 Bruktdekk Verdikalkulator** - Beregn verdien av brukte dekk
-2. **⚡ Spenningsfall Kalkulator** - Beregn spenningsfall i elektriske kabler  
-3. **🔌 Kabel Dimensjonering Kalkulator** - Finn riktig kabeltverrsnitt
-
-## 🚗 Bruktdekk Verdikalkulator
-
-**Beskrivelse:** Flerspråklig kalkulator for å beregne nåværende verdi av brukte dekk basert på mønsterdybde, alder og andre faktorer.
-
-**Funksjoner:**
-- Automatisk dekktype-valg (vinterdekk 8mm/3mm, sommerdekk 7mm/1,6mm)
-- Intelligent beregning med mønsterslitasje og aldersavskrivning
-- Tilstandsvurdering (Utmerket/God/Akseptabel/Dårlig)
-- Monteringskostnad trekkes fra dekkverdien
-- Flerspråklig støtte (engelsk, norsk, tysk, fransk)
-
-**Beregningsmetode:**
-- Mønsterlevetid: Prosent av gjenværende brukbar mønsterdybde
-- Aldersavskrivning: 10% per år etter første år
-- Minimumsverdi: 10% av nypris for sikkerhet
-- Nettoverdi: Etter fradrag av monteringskostnad
-
-**Fil:** `tire-calculator.html`
+1. **⚡ Spenningsfall Kalkulator** - Beregn spenningsfall i elektriske kabler  
+2. **🔌 Kabel Dimensjonering Kalkulator** - Finn riktig kabeltverrsnitt
 
 ## ⚡ Spenningsfall Kalkulator
 
@@ -92,11 +72,8 @@ Denne samlingen inneholder tre spesialiserte kalkulatorer:
 
 ```
 ├── index.html                    # Hovedside med kalkulator-oversikt
-├── tire-calculator.html          # Bruktdekk verdikalkulator (norsk)
 ├── voltage-drop-calculator.html  # Spenningsfall kalkulator (flerspråklig)
 ├── cable-sizing-calculator.html  # Kabel dimensjonering (flerspråklig)
-├── script.js                     # Dekk kalkulator logikk
-├── style.css                     # Dekk kalkulator styling
 ├── voltage-drop-script.js        # Spenningsfall logikk
 ├── voltage-drop-style.css        # Spenningsfall styling
 ├── cable-sizing-script.js        # Kabel dimensjonering logikk
@@ -106,7 +83,6 @@ Denne samlingen inneholder tre spesialiserte kalkulatorer:
 
 ## 🌐 Språkstøtte
 
-- **Bruktdekk kalkulator:** Engelsk, norsk, tysk, fransk
 - **Spenningsfall kalkulator:** Engelsk, norsk, tysk, fransk
 - **Kabel dimensjonering:** Engelsk, norsk, tysk, fransk
 
