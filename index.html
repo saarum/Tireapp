@@ -1,90 +1,100 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruktdekk Verdikalkulator</title>
+    <title data-translate="title">Used Tire Value Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="calculator">
-        <h1>Bruktdekk Verdikalkulator</h1>
+        <div class="language-selector">
+            <label for="languageSelect" data-translate="language">Language:</label>
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="no">Norsk</option>
+                <option value="de">Deutsch</option>
+                <option value="fr">Français</option>
+            </select>
+        </div>
+
+        <h1 data-translate="title">Used Tire Value Calculator</h1>
 
         <div class="input-section">
             <div class="input-group">
-                <label for="tireType">Dekktype</label>
+                <label for="tireType" data-translate="tireType">Tire Type</label>
                 <select id="tireType" onchange="updateTreadDepths()">
-                    <option value="winter">Vinterdekk (8mm ny / 3mm min)</option>
-                    <option value="summer">Sommerdekk (7mm ny / 1,6mm min)</option>
+                    <option value="winter" data-translate="winterTires">Winter Tires (8mm new / 3mm min)</option>
+                    <option value="summer" data-translate="summerTires">Summer Tires (7mm new / 1.6mm min)</option>
                 </select>
             </div>
 
             <div class="input-group">
-                <label for="currentTread">Nåværende mønsterdybde (mm)</label>
-                <input type="number" id="currentTread" step="0.1" min="0" placeholder="f.eks. 5,5">
+                <label for="currentTread" data-translate="currentTread">Current Tread Depth (mm)</label>
+                <input type="number" id="currentTread" step="0.1" min="0" data-placeholder="currentTreadPlaceholder">
             </div>
 
             <div class="input-group">
-                <label for="newTread">Mønsterdybde som ny (mm)</label>
-                <input type="number" id="newTread" step="0.1" min="0" placeholder="8,0" readonly>
+                <label for="newTread" data-translate="newTread">Tread Depth When New (mm)</label>
+                <input type="number" id="newTread" step="0.1" min="0" readonly>
             </div>
 
             <div class="input-group">
-                <label for="minTread">Minimum mønsterdybde (mm)</label>
-                <input type="number" id="minTread" step="0.1" min="0" placeholder="3,0" readonly>
+                <label for="minTread" data-translate="minTread">Minimum Tread Depth (mm)</label>
+                <input type="number" id="minTread" step="0.1" min="0" readonly>
             </div>
 
             <div class="input-group">
-                <label for="productionYear">Produksjonsår</label>
-                <input type="number" id="productionYear" min="1990" max="2025" placeholder="f.eks. 2020">
+                <label for="productionYear" data-translate="productionYear">Production Year</label>
+                <input type="number" id="productionYear" min="1990" max="2025" data-placeholder="productionYearPlaceholder">
             </div>
 
             <div class="input-group">
-                <label for="originalPrice">Nypris (kr)</label>
-                <input type="number" id="originalPrice" step="0.01" min="0" placeholder="f.eks. 10000">
+                <label for="originalPrice" data-translate="originalPrice">Original Price</label>
+                <input type="number" id="originalPrice" step="0.01" min="0" data-placeholder="originalPricePlaceholder">
             </div>
 
             <div class="input-group">
-                <label for="mountingCost">Monteringskostnad (kr)</label>
-                <input type="number" id="mountingCost" step="0.01" min="0" placeholder="f.eks. 1200">
+                <label for="mountingCost" data-translate="mountingCost">Mounting Cost</label>
+                <input type="number" id="mountingCost" step="0.01" min="0" data-placeholder="mountingCostPlaceholder">
             </div>
 
             <div class="input-group">
-                <label for="expectedLifespan">Forventet levetid (år)</label>
-                <input type="number" id="expectedLifespan" min="1" max="20" placeholder="f.eks. 7">
+                <label for="expectedLifespan" data-translate="expectedLifespan">Expected Lifespan (years)</label>
+                <input type="number" id="expectedLifespan" min="1" max="20" data-placeholder="expectedLifespanPlaceholder">
             </div>
         </div>
 
-        <button onclick="calculateTireValue()" class="btn calculate">Beregn dekkverdi</button>
+        <button onclick="calculateTireValue()" class="btn calculate" data-translate="calculateButton">Calculate Tire Value</button>
 
         <div class="results" id="results">
             <div class="result-item">
-                <span class="label">Gjenværende mønster:</span>
+                <span class="label" data-translate="treadLifeRemaining">Tread Life Remaining:</span>
                 <span class="value" id="treadLife">-</span>
             </div>
             <div class="result-item">
-                <span class="label">Aldersfaktor:</span>
+                <span class="label" data-translate="ageFactor">Age Factor:</span>
                 <span class="value" id="ageFactor">-</span>
             </div>
             <div class="result-item">
-                <span class="label">Netto dekkverdi (etter montering):</span>
+                <span class="label" data-translate="netTireValue">Net Tire Value (after mounting cost):</span>
                 <span class="value highlight" id="currentValue">-</span>
             </div>
             <div class="result-item">
-                <span class="label">Endelig verdi:</span>
+                <span class="label" data-translate="finalValue">Final Value:</span>
                 <span class="value" id="totalCost">-</span>
             </div>
         </div>
 
         <div class="info">
-            <h3>Slik fungerer det:</h3>
+            <h3 data-translate="howItWorks">How it works:</h3>
             <ul>
-                <li>Gjenværende mønster beregnes basert på nåværende vs. ny mønsterdybde</li>
-                <li>Aldersavskrivning på 10% per år etter første år</li>
-                <li>Minimumsverdi settes til 10% av nypris for sikkerhetsdekk</li>
-                <li>Monteringskostnad trekkes fra dekkverdien for å vise nettoverdi</li>
+                <li data-translate="howItWorks1">Tread life remaining is calculated based on current vs. new tread depth</li>
+                <li data-translate="howItWorks2">Age depreciation applies 10% per year after the first year</li>
+                <li data-translate="howItWorks3">Minimum value is set to 10% of original price for safety tires</li>
+                <li data-translate="howItWorks4">Mounting cost is deducted from the tire value to show net worth</li>
             </ul>
         </div>
     </div>
